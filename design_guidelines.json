@@ -1,0 +1,64 @@
+{
+  "theme": "Light theme",
+  "archetype": "ARCHETYPE 1: ORGANIC & EARTHY",
+  "colors": {
+    "background": "#FDFCFB",
+    "surface": "#F4F4F5",
+    "primary": "#81B29A",
+    "secondary": "#E07A5F",
+    "text_primary": "#1A2A22",
+    "text_secondary": "#5C6A63",
+    "border": "#E5E7EB",
+    "destructive": "#D9534F",
+    "notes": "Medical interfaces require absolute clarity. Avoid generic Teal Blue/Green completely. Do not use full-screen gradients. Keep colors flat, matte, and organic to feel human and calm."
+  },
+  "typography": {
+    "heading_font": "Manrope",
+    "body_font": "IBM Plex Sans",
+    "banned_fonts": ["Inter", "Roboto", "Open Sans", "Lato", "Space Grotesk"],
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-none",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight",
+      "h3": "text-xl sm:text-2xl font-medium",
+      "body": "text-base leading-relaxed"
+    },
+    "notes": "Avoid 'Inter everywhere'. Use Manrope for friendly but professional headings and IBM Plex Sans for dense clinical data."
+  },
+  "visual_enhancers": {
+    "surfaces": "Flat Solid surfaces ONLY. NO Glassmorphism in medical apps to prevent visual refraction of clinical data. Use warm solid backgrounds with subtle borders instead.",
+    "borders": "Grid borders. Expose the skeleton for data-heavy sections. Use 1px subtle borders (border-border).",
+    "shadows": "Keep minimal. Two-shadow approach (light top-left, dark bottom-right) for hover states, otherwise flat."
+  },
+  "components": {
+    "dashboard_cards": "Flat background, max 8px border-radius (rounded-md), 1px border. Hover: Slight lift (-translate-y-1) and subtle shadow. Don't overuse card component: Go cardless, rectangular, dense styles.",
+    "navigation": "Sidebar Navigation for standard modules (Dashboard, Clinics, Doctors, Patients). Must have a solid background.",
+    "tables": "High Density Data Grid for Patients, Doctors, and Consultations. Use Shadcn UI Table.",
+    "forms": "Never use native input. Use Shadcn Form, Input, Select. For the Medications list editor, use a dynamic field array in the form.",
+    "toasts": "Sonner (for clinical actions/alerts). Use sonner from /app/frontend/src/components/ui/sonner.tsx."
+  },
+  "grids_layouts": {
+    "strategy": "MODE B: High Density Grid (Dashboards / Analytics). Base Grid: grid-cols-1 md:grid-cols-3 lg:grid-cols-4. Gap Strategy: Tight (gap-4 or gap-6).",
+    "spacing": "Generous Spacing Philosophy outside cards. Use p-6 or p-8 inside bordered containers. Ensure optical alignment.",
+    "alignment": "Left-align paragraphs, labels, inputs, and tabular data for optimal reading flow."
+  },
+  "motion": {
+    "requirements": "Minimalist animations for feedback (hover states, focus rings).",
+    "rules": "MUST respect prefers-reduced-motion. Do not rely on motion alone for feedback."
+  },
+  "accessibility": {
+    "contrast": "Ensure minimum 4.5:1 contrast ratio. ALWAYS explicitly set text color on hover.",
+    "data_testid": "MANDATORY on all interactive and key informational elements (e.g., data-testid='login-submit-button', data-testid='patient-record').",
+    "notes": "DO NOT use complete transparent background in header, overlays, or dropdowns."
+  },
+  "media": {
+    "icons": "Use Phosphor Icons (@phosphor-icons/react) for dense dashboards.",
+    "image_urls": {
+      "doctor_avatar_1": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwyfHxkb2N0b3IlMjBwb3J0cmFpdHxlbnwwfHx8fDE3OTMzNjEzOTZ8MA&ixlib=rb-4.1.0&q=85",
+      "doctor_avatar_2": "https://images.unsplash.com/photo-1758691463582-11aea602cd4a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwzfHxkb2N0b3IlMjBwb3J0cmFpdHxlbnwwfHx8fDE3OTMzNjEzOTZ8MA&ixlib=rb-4.1.0&q=85",
+      "clinic_building": "https://images.unsplash.com/photo-1631507623442-fee09e89c6a8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBtZWRpY2FsJTIwY2xpbmljJTIwYnVpbGRpbmd8ZW58MHx8fHwxNzkzMzYxMzk2fDA&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "3d_libraries": "Do not use 3D libraries. Prioritize clarity over immersion. Use Shadcn Charts / Recharts for data visualization.",
+  "instructions_to_main_agent": "Ensure the layout does not center-align the app container. Implement data-testid on everything. Ensure Shadcn form handles the Medications JSON list properly. Use Recharts for the dashboard counts.",
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight. Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients. Don't make generic centered layouts, simplistic gradients, and uniform styling. Create depth through layered design elements with z-index hierarchy. You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms. You MUST NOT center align the app container. Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style. NEVER: use AI assistant Emoji characters. Every interaction needs micro-animations. Use 2-3x more spacing than feels comfortable. Subtle grain textures, noise overlays. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN. Prioritize using pre-existing components from src/components/ui when applicable. Use `sonner` for toasts."
+}
